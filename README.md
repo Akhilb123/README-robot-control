@@ -34,7 +34,7 @@ while (fire == true)
      }
 Inside the put_off_fire() we just have to stop the robot by making all the pins high. 
  
- After this we can turn on the pump .
+ #### After this we can turn on the pump .
 void put_off_fire()
 {
      delay (600);               pause the program execution for 600 milliseconds
