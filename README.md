@@ -28,35 +28,38 @@ We can use the motors to move in the proper direction of the fire by operating t
 The above code sets the LM1 and RM1 pins to high and the LM2 and RM2 pins to low. This causes the robot's left and right wheels to move forward, driving it ahead in a straight path.
 
 once the variable fire became true the code will execute put off fire function. the code used for doing that is given below
-while (fire == true)
+     while (fire == true)
      {
       put_off_fire();
      }
 Inside the put_off_fire() we just have to stop the robot by making all the pins high. 
  
- #### After this we can turn on the pump .
-void put_off_fire()
-{
-     delay (600);               pause the program execution for 600 milliseconds
+ ##### After this we can turn on the pump.
+ 
+    void put_off_fire()
+   {
+    
+    delay (600);               pause the program execution for 600 milliseconds
+     
     digitalWrite(LM1, HIGH);    Setting the LM1 digital output pin to a high value, which will stop the left motor from moving.
     digitalWrite(LM2, HIGH);    Setting the LM2 digital output pin to a high value, which will stop the left motor from moving.
     digitalWrite(RM1, HIGH);    Setting the RM1 digital output pin to a high value, which will stop the right motor from moving
     digitalWrite(RM2, HIGH);    Setting the RM2 digital output pin to a high value, which will stop the right motor from moving.
-   digitalWrite(pump, HIGH);    The pump will operate if the digital output pin for the pump is set to a high value.
-   delay(600); 
+    digitalWrite(pump, HIGH);    //The pump will operate if the digital output pin for the pump is set to a high value
+    delay(600); 
     for (pos = 50; pos <= 130; pos += 1) {      Starting a for loop that will run from pos = 50 to pos = 130 in increments of 1.
     myservo.write(pos);                         Moveing the servo to the position specified by the pos variable.
     delay(20); 
-  }                                             end of for loop
- for (pos = 130; pos >= 50; pos -= 1) {          Starting a for loop that will run from pos = 130 to pos = 50 in decrements of 1.
+    }              end of for loop
+    for (pos = 130; pos >= 50; pos -= 1) {          Starting a for loop that will run from pos = 130 to pos = 50 in decrements of 1.
     myservo.write(pos);
-    delay(20);
-  }
-  digitalWrite(pump,LOW); setting the pump digital output pin to a low value, which will turn off the pump.
-  myservo.write(90);
+    delay(20); 
+    }
+    digitalWrite(pump,LOW); setting the pump digital output pin to a low value, which will turn off the pump.
+    myservo.write(90);
     fire=false;     the fire boolean variable is set to false which indicates the fire has been extinguished
-}
+    }
 
 
-#### link for datasheet of L293D motor:
+##### link for datasheet of L293D motor:
 https://www.bing.com/aclk?ld=e8fK-PV_HL4PYP61kJaqjpbDVUCUxEgswJv9qFg2plRHNtz4QnS1ZBoqt4jUIdmzeq6MJgN19WSYIO6jp0HHKyCp_ES5MkFIMKRtE2FWvxAUM9UZyJ_NnXziLhMDu6GsE4L2ZLL6fn1-DEUzAf80e1ctuaWbjAfP9dKIMqiYZUefbUbWkJqfgRgIDrmd_CMEnrCRR0YQ&u=aHR0cHMlM2ElMmYlMmZvY3RvcGFydC5jb20lMmZkYXRhc2hlZXQlMmZsMjkzZC1zdG1pY3JvZWxlY3Ryb25pY3MtNDY4MjY3JTNmdXRtX3NvdXJjZSUzZGJpbmclMjZ1dG1fbWVkaXVtJTNkY3BjJTI2dXRtX2NhbXBhaWduJTNkYl9jcGNfaW50bF9zZWFyY2hfZHNhX2VuZ2xpc2hfZW5fdXNkX2RhdGFzaGVldHMlMjZ1dG1fdGVybSUzZGRhdGFzaGVldCUyNnV0bV9jb250ZW50JTNkSW50bCUyNTIwRGF0YXNoZWV0JTI1MjBEU0E&rlid=8bf5d061522310232de1b47b53cfe451&ntb=1
