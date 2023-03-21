@@ -27,7 +27,7 @@ We can use the motors to move in the proper direction of the fire by operating t
     }
 The above code sets the LM1 and RM1 pins to high and the LM2 and RM2 pins to low. This causes the robot's left and right wheels to move forward, driving it ahead in a straight path.
 
-once the variable fire became true the code will execute put off fire function. the code used for doing that is given below
+#### once the variable fire became true the code will execute put off fire function. the code used for doing that is given below
      while (fire == true)
      {
       put_off_fire();
@@ -37,7 +37,7 @@ Inside the put_off_fire() we just have to stop the robot by making all the pins 
  ##### After this we can turn on the pump.
  
     void put_off_fire()
-   {
+    {
     
     delay (600);               pause the program execution for 600 milliseconds
      
